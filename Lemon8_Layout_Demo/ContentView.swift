@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        FeedViewControllerRepresentable()
+            .ignoresSafeArea()
+    }
+}
+
+struct FeedViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> FeedViewController {
+        return FeedViewController(tabName: "推荐")
+    }
+
+    func updateUIViewController(_ uiViewController: FeedViewController, context: Context) {
     }
 }
 

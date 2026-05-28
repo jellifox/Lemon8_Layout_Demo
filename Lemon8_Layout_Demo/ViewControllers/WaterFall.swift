@@ -18,8 +18,8 @@ class WaterFall: UICollectionViewLayout {
     weak var delegate: WaterFallDelegate?
     
     var column: Int = 2
-    var minimumColumnSpacing: CGFloat = 10
-    var minimumInterSpacing: CGFloat = 5
+    var minimumColumnSpacing: CGFloat = 8
+    var minimumInterSpacing: CGFloat = 8
     var sectionInset: UIEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     
     private var cache: [UICollectionViewLayoutAttributes] = []
@@ -40,28 +40,27 @@ class WaterFall: UICollectionViewLayout {
         let availableWidth = collectionView.bounds.width - sectionInset.left - sectionInset.right - CGFloat(column - 1) * minimumColumnSpacing
         let itemWidth = availableWidth / CGFloat(column)
         
-        let itemCount = collectionView.numberOfItems(inSection: 0)
-        for item in 0..<itemCount {
-            let indexPath = IndexPath(item: item, section: 0)
-            
-            // 找到当前最短的列
-            let shortestColumn = columnHeights.enumerated().min(by: { $0.element < $1.element })?.offset ?? 0
-            
-            let xOffset = sectionInset.left + CGFloat(shortestColumn) * (itemWidth + minimumColumnSpacing)
-            let yOffset = columnHeights[shortestColumn]
-            
-            // 通过 delegate 获取 item 高度
-            let itemHeight = delegate?.waterfallLayout(self, heightForItemAt: indexPath) ?? 200
-            
-            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            attributes.frame = CGRect(x: xOffset, y: yOffset, width: itemWidth, height: itemHeight)
-            cache.append(attributes)
-            
-            // 更新该列高度
-            columnHeights[shortestColumn] = yOffset + itemHeight + minimumInterSpacing
+        let sectionCount = collectionView.numberOfSections
+        for section in 0..<sectionCount {
+            let itemCount = collectionView.numberOfItems(inSection: section)
+            for item in 0..<itemCount {
+                let indexPath = IndexPath(item: item, section: section)
+
+                let shortestColumn = columnHeights.enumerated().min(by: { $0.element < $1.element })?.offset ?? 0
+
+                let xOffset = sectionInset.left + CGFloat(shortestColumn) * (itemWidth + minimumColumnSpacing)
+                let yOffset = columnHeights[shortestColumn]
+
+                let itemHeight = delegate?.waterfallLayout(self, heightForItemAt: indexPath) ?? 200
+
+                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                attributes.frame = CGRect(x: xOffset, y: yOffset, width: itemWidth, height: itemHeight)
+                cache.append(attributes)
+
+                columnHeights[shortestColumn] = yOffset + itemHeight + minimumInterSpacing
+            }
         }
         
-        // 内容总高度取最长列的高度
         contentHeight = (columnHeights.max() ?? 0) - minimumInterSpacing + sectionInset.bottom
     }
     
@@ -70,7 +69,7 @@ class WaterFall: UICollectionViewLayout {
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return cache[indexPath.item]
+        return cache.first { $0.indexPath == indexPath }
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
