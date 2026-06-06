@@ -10,17 +10,17 @@ import UIKit
 
 struct ContentView: View {
     var body: some View {
-        FeedViewControllerRepresentable()
+        HomeViewControllerRepresentable()
             .ignoresSafeArea()
     }
 }
 
-struct FeedViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> FeedViewController {
-        return FeedViewController(tabName: "推荐")
+struct HomeViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> HomeViewController {
+        return HomeViewController()
     }
 
-    func updateUIViewController(_ uiViewController: FeedViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: HomeViewController, context: Context) {
     }
 }
 

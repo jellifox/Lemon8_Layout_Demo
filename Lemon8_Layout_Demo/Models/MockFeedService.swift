@@ -6,6 +6,16 @@
 import UIKit
 
 enum MockFeedService {
+
+    /// 顶部 tab 栏数据。Step 2 用。
+    static func makeTabs() -> [TagModel] {
+        return [
+            TagModel(tagID: "foryou",     tagTitle: "推荐"),
+            TagModel(tagID: "fashion", tagTitle: "时尚"),
+            TagModel(tagID: "food",    tagTitle: "美食"),
+        ]
+    }
+
     static func makeCards(tab: String, count: Int) -> [CardModel] {
         let heights: [CGFloat] = [200, 260, 320, 240, 380, 300]
         return (0..<count).map { i in
