@@ -284,9 +284,6 @@ extension HomeViewController: UICollectionViewDataSource {
             for: indexPath
         ) as! MainCollectionViewCell
 
-        // B 阶段重构：cell 自己持有 FeedVC。这里只做两件事：
-        //   1. addChild 接管父子关系（若尚未接管）
-        //   2. 让 cell 把 tab + delegate 设进自己的 VC，VC 内部触发 switchTab → loadData
         if cell.feedVC.parent !== self {
             addChild(cell.feedVC)
             cell.feedVC.didMove(toParent: self)

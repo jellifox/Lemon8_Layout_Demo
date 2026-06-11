@@ -138,8 +138,8 @@ class CardCollectionViewCell: UICollectionViewCell {
         }
         
         playOverlayView.snp.makeConstraints { make in
-            make.center.equalTo(imageView)
-            make.width.height.equalTo(40)
+            make.top.right.equalTo(imageView).inset(5)
+            make.width.height.equalTo(20)
         }
     }
     

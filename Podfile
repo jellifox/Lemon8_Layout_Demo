@@ -11,6 +11,7 @@ target 'Lemon8_Layout_Demo' do
     pod 'RxSwift', '6.5.0'
     pod 'RxCocoa', '6.5.0'
     pod 'SnapKit', '~> 5.7.0'
+    pod 'Alamofire'
 
   target 'Lemon8_Layout_DemoTests' do
     inherit! :search_paths

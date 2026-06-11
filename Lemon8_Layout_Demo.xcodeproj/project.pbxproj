@@ -47,16 +47,22 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F85CD9C02F0241E900B356AF /* Lemon8_Layout_Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = Lemon8_Layout_Demo;
 			sourceTree = "<group>";
 		};
 		F85CD9CE2F0241EB00B356AF /* Lemon8_Layout_DemoTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = Lemon8_Layout_DemoTests;
 			sourceTree = "<group>";
 		};
 		F85CD9D82F0241EB00B356AF /* Lemon8_Layout_DemoUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = Lemon8_Layout_DemoUITests;
 			sourceTree = "<group>";
 		};
@@ -305,13 +311,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Lemon8_Layout_Demo/Pods-Lemon8_Layout_Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Lemon8_Layout_Demo/Pods-Lemon8_Layout_Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -326,13 +328,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Lemon8_Layout_DemoTests/Pods-Lemon8_Layout_DemoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Lemon8_Layout_DemoTests/Pods-Lemon8_Layout_DemoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -347,13 +345,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Lemon8_Layout_Demo-Lemon8_Layout_DemoUITests/Pods-Lemon8_Layout_Demo-Lemon8_Layout_DemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Lemon8_Layout_Demo-Lemon8_Layout_DemoUITests/Pods-Lemon8_Layout_Demo-Lemon8_Layout_DemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
